@@ -5,21 +5,21 @@ admin.initializeApp();
 
 exports.sendEmail = functions.https.onRequest((request, response) => {
   // Parse the request body to get the email details
-  // const {to, subject, body}= request.body;
+  
   // Create a new transporter using the Gmail service
   const transporter = nodemailer.createTransport({
     service: "gmail",
     host: "smtp.gmail.com",
     secure: true,
     auth: {
-      user: "lazizbekfayziyev@gmail.com",// senders gmail
+      user: "lazizbekfayziyev@gmail.com",// sender's gmail
       pass: "gmail_password",
     },
   });
-  // const dest = req.query.dest;
+  
   // Create the email options
   const mailOptions = {
-    from: "lazizbekfayziyev@gmail.com",
+    from: "lazizbekfayziyev@gmail.com",// sender's gmail
     to: request.body.toEmail,
     subject: request.body.subject,
     text: request.body.body,
